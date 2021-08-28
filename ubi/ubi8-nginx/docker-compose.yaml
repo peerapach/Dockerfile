@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  nginx:
+    image: peerapach/ubi:8-nginx
+    build:
+      context: .
+      dockerfile: ${PWD}/Dockerfile

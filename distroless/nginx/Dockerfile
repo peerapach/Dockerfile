@@ -23,10 +23,10 @@ RUN mkdir -p /opt/var/cache/nginx && \
     cp -a --parents /usr/lib/x86_64-linux-gnu/libcrypto.so.* /opt
 
 
-FROM gcr.io/distroless/base-debian10 as nginx-distroless-unprivileged
+FROM gcr.io/distroless/base-debian10:debug as nginx-distroless-unprivileged
 
 COPY --from=base /opt /
 EXPOSE 8080
-STOPSIGNAL SIGTERM
+STOPSIGNAL SIGQUIT
 USER 1001
 ENTRYPOINT ["nginx", "-g", "daemon off;"]

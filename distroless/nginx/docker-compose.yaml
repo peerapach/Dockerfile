@@ -3,8 +3,7 @@ services:
   nginx:
     image: peerapach/distroless/nginx:${NGINX_VERSION}
     build:
-      context: ../../
+      context: .
       dockerfile: ${PWD}/Dockerfile
       args:
         NGINX_VERSION: ${NGINX_VERSION}      
-    entrypoint: ''
